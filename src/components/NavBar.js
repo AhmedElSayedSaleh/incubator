@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import styled from "styled-components";
 import { Logo } from "../assets";
@@ -30,16 +30,20 @@ const NavBar = () => {
   return (
     <Navbar bg="light" expand="lg" sticky="top" className="py-0">
       <Container fluid>
-        <Navbar.Brand as={Link} to="/" className="py-0">
+        <Navbar.Brand as={NavLink} to="/" className="py-0">
           <img src={Logo} alt="Incubator-logo" style={{ width: "120px" }} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <StyledNav className="ms-auto">
-            <StyledNav.Link href="/">Home</StyledNav.Link>
+            <StyledNav.Link as={NavLink} to="/">
+              Home
+            </StyledNav.Link>
             <StyledNav.Link href="/#about">About US</StyledNav.Link>
             <StyledNav.Link href="/#contact">Contact US</StyledNav.Link>
-            <StyledNav.Link href="/interns">Interns</StyledNav.Link>
+            <StyledNav.Link as={NavLink} to="/interns">
+              Interns
+            </StyledNav.Link>
           </StyledNav>
         </Navbar.Collapse>
       </Container>

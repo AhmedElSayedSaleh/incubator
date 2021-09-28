@@ -13,6 +13,39 @@ import {
   designInterns,
 } from "../data/internsDB";
 
+const StyledInterns = styled.div`
+  background-color: var(--sixth-color);
+
+  .intern-card-img {
+    width: 25rem;
+    height: 25rem;
+    background-image: url(${InternBgImg});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+
+  .intern-card-desc {
+    h3 {
+      color: var(--main-color);
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+
+    h5 {
+      color: var(--third-color);
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+  }
+`;
+
 const Interns = () => {
   const [selected, setSelected] = useState("all");
   const [data, setData] = useState([]);
@@ -63,39 +96,6 @@ const Interns = () => {
     }
   }, [selected]);
 
-  const StyledInterns = styled.div`
-    background-color: var(--sixth-color);
-  `;
-
-  const StyledInternImgCard = styled.div`
-    width: 25rem;
-    height: 25rem;
-    background-image: url(${InternBgImg});
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-  `;
-
-  const StyledInternDesCard = styled.div`
-    h3 {
-      color: var(--main-color);
-      font-size: 2.5rem;
-      font-weight: 700;
-      text-transform: capitalize;
-    }
-
-    h5 {
-      color: var(--third-color);
-      font-size: 1.5rem;
-      font-weight: 700;
-      text-transform: capitalize;
-    }
-  `;
-
   return (
     <>
       <Container fluid>
@@ -123,7 +123,7 @@ const Interns = () => {
                 key={el.id}
                 className="d-flex justify-content-center flex-column text-center py-5"
               >
-                <StyledInternImgCard>
+                <div className="intern-card-img">
                   <a href={el.url} target="_blank" rel="noopener noreferrer">
                     <img
                       className="w-50"
@@ -131,11 +131,11 @@ const Interns = () => {
                       alt=""
                     />
                   </a>
-                </StyledInternImgCard>
-                <StyledInternDesCard>
+                </div>
+                <div className="intern-card-desc">
                   <h3>{el.name}</h3>
                   <h5>{el.title}</h5>
-                </StyledInternDesCard>
+                </div>
               </Col>
             ))}
           </Row>

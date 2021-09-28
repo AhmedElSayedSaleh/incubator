@@ -1,7 +1,9 @@
 import React from "react";
+
 import { NavBar, Slider } from "../components";
 import { InternsImg } from "../assets";
 import styled from "styled-components";
+import { withRouter } from "react-router-dom";
 
 const StyledHeader = styled.div`
   height: 75vh;
@@ -10,28 +12,25 @@ const StyledHeader = styled.div`
 
 const Header = () => {
   const urlPath = window.location.pathname;
-  const HeaderContent = () => {
-    if (urlPath === "/interns") {
-      return (
+  if (urlPath === "/interns") {
+    return (
+      <>
+        <NavBar />
         <StyledHeader>
           <img className="d-block w-100 h-100" src={InternsImg} alt="intern" />
         </StyledHeader>
-      );
-    } else {
-      return (
-        <StyledHeader>
-          <Slider />
-        </StyledHeader>
-      );
-    }
-  };
+      </>
+    );
+  }
 
   return (
     <>
       <NavBar />
-      <HeaderContent />
+      <StyledHeader>
+        <Slider />
+      </StyledHeader>
     </>
   );
 };
 
-export default Header;
+export default withRouter(Header);

@@ -1,15 +1,15 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { Footer, Header, Hero } from "./layout";
 
 const App = () => {
   return (
     <div>
-      <Router>
+      <BrowserRouter basename={"/incubator"}>
         <Header />
         <Hero />
         <Footer />
-      </Router>
+      </BrowserRouter>
     </div>
   );
 };
